@@ -41,11 +41,6 @@
     <main class="container">
 
         {{-- ✅ Include the slot for dynamic content --}}
-         @if (session('success'))
-            <div id="flash" class="p-4 font-semibold text-center text-green-500 bg-green-50">
-                {{ session('success') }}
-            </div>
-        @endif
 
         {{ $slot}}
 
@@ -53,3 +48,19 @@
     </main>
  </body>
 </html>
+
+
+<script>
+    // Flash message fade out
+    setTimeout(function() {
+        const flash = document.getElementById('flash');
+        if (flash) {
+            flash.style.transition = 'opacity 0.5s ease-out';
+            flash.style.opacity = '0';
+            setTimeout(() => {
+                flash.remove();
+            }, 500);
+        }
+    }, 3000);
+</script>
+

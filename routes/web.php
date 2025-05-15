@@ -13,7 +13,7 @@ Route::post('/logout', [Authcontroller::class, 'logout'])->name('logout');
 Route::middleware('guest')->controller(AuthController::class)->group(function () {
 Route::get('/register',  'showRegister')->name('show.register');
 Route::get('login',  'showLogin')->name('show.login');
-Route::get('/register',  'register')->name('register');
+Route::post('/register',  'register')->name('register');
 Route::post('/login', 'login')->name('login');
 });
 
