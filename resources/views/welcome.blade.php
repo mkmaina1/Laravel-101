@@ -14,10 +14,10 @@
         <!-- Styles & Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-gray-100 text-gray-700 font-sans antialiased">
+    <body class="font-sans antialiased text-gray-700 bg-gray-100">
         <header class="bg-blue-200">
-            <nav class="flex items-center gap-5 max-w-screen-lg px-12 py-4 mx-auto">
-                <h1 class="text-2xl font-bold text-blue-500 mr-auto">Infinite Network</h1>
+            <nav class="flex items-center max-w-screen-lg gap-5 px-12 py-4 mx-auto">
+                <h1 class="mr-auto text-2xl font-bold text-blue-500">Infinite Network</h1>
                 <a href="{{ route('Infinite.index') }}" class="btn">Login</a>
                 <a href="{{ route('Infinite.create') }}" class="btn">Create New Account</a>
             </nav>

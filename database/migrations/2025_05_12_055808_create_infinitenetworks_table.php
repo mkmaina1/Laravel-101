@@ -18,6 +18,8 @@ return new class extends Migration
             $table ->integer('location');
             $table ->text('bio');
             $table->foreignId('dojo_id')->constrained()->onDelete('cascade');
+            $table->string('role')->default('user'); // roles: admin, user
+
         });
     }
 

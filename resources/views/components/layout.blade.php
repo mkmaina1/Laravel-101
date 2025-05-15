@@ -15,10 +15,27 @@
     @endif
     <header>
         <nav>
-                <h1 class="text-blue-700 ">Infinite Network</h1>
-                <a href="{{ route('Infinite.index') }}">All Infinite Networks</a>
-                <a href="{{ route('Infinite.create') }}">Create New Infinite Network</a>
-            </ul>
+                <h1>
+                    <a href="{{ route('Infinite.index') }}" class="text-blue-700 ">Infinite Network</a>
+                    <span class="text-gray-500"> - Connecting the World</span>
+                </h1>
+
+                @guest
+                <a href="{{ route('show.login') }}" class="btn">Login</a>
+                <a href="{{ route('show.register') }}" class="btn">Register</a>
+                @endguest
+
+                @auth
+                <span class="pr-2 border-r-2 border-gray-300">
+                Hello there, {{ Auth::user()->name }}
+             </span>
+         <a href="{{ route('Infinite.index') }}">All Infinite Networks</a>
+                <form action="{{ route('logout') }}" method="POST" class="m-0">
+                    @csrf
+                    <button type="submit" class="btn">Logout</button>
+                </form>
+            @endauth
+        </ul>
         </nav>
     </header>
     <main class="container">
@@ -30,7 +47,9 @@
             </div>
         @endif
 
-      {{ $slot }}
+        {{ $slot}}
+
+
     </main>
  </body>
 </html>
